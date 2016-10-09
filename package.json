@@ -1,27 +1,24 @@
 {
-  "author": "Troy Wolfe <troythewolfe@gmail.com>",
   "name": "run-function-with-signature",
-  "description": "Runs a function and tests input and output against json schemas",
   "version": "0.0.1",
-  "license": "MIT",
-  "dependencies": {
-    "jsonschema": "1.1.0",
+  "description": "throws an error if the input or output of a function fails to validate against schemas",
+  "main": "run-function-with-signature.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troythewolfe/run-function-with-signature.git"
   },
-  "main": "./",
   "keywords": [
     "json",
     "schema",
-    "jsonschema",
     "validator",
-    "validation",
     "signature",
-    "parameters",
-    "return",
     "input",
     "output"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/troythewolfe/run-function-with-signature.git"
+  "author": "Troy Wolfe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/troythewolfe/run-function-with-signature/issues"
   },
+  "homepage": "https://github.com/troythewolfe/run-function-with-signature#readme"
 }
