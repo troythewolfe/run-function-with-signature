@@ -1,0 +1,27 @@
+{
+  "author": "Troy Wolfe <troythewolfe@gmail.com>",
+  "name": "run-function-with-signature",
+  "description": "Runs a function and tests input and output against json schemas",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "jsonschema": "1.1.0",
+  },
+  "main": "./",
+  "keywords": [
+    "json",
+    "schema",
+    "jsonschema",
+    "validator",
+    "validation",
+    "signature",
+    "parameters",
+    "return",
+    "input",
+    "output"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/troythewolfe/run-function-with-signature.git"
+  },
+}
