@@ -33,7 +33,7 @@ const functionReturnValue = runFunction(testFunction, {
     required: ['a', 'b']
 
 }, {
-    //INPUT SCHEMA
+    //OUTPUT SCHEMA
     id: 'testoutput',
     properties: {
         c: {
