@@ -1,10 +1,12 @@
 #run-function-with-signature
 
+`throw new Error(err)` if the input or output fails validation.
+
 ## Usage
 
 
 ```
-var runFunc = require('run-function-with-signature');
+var runFunction = require('run-function-with-signature');
 
 function testFunction(input){
     return {
@@ -13,7 +15,7 @@ function testFunction(input){
     }
 }
 
-const funcSigReturn = runFunc(testFunction, {
+const functionReturnValue = runFunction(testFunction, {
     //INPUT
     a: 3,
     b: 'string'
@@ -48,5 +50,5 @@ const funcSigReturn = runFunc(testFunction, {
     responseRequired: false
 });
 
-console.log(funcSigReturn);
+console.log(functionReturnValue);
 ```
