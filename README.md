@@ -1,7 +1,8 @@
 #run-function-with-signature
 
-// add a slash to the end of the two stars above to uncomment this block
-// USAGE
+## Usage
+
+```
 function testFunction(input){
     return {
         c: 'this is my response',
@@ -45,3 +46,4 @@ const funcSigReturn = runWithSig(testFunction, {
 });
 
 console.log(funcSigReturn);
+```
