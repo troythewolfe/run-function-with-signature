@@ -1,4 +1,4 @@
-=run-function-with-signature=
+#run-function-with-signature
 
 // add a slash to the end of the two stars above to uncomment this block
 // USAGE
