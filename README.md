@@ -2,7 +2,10 @@
 
 ## Usage
 
+
 ```
+var runFunc = require('run-function-with-signature');
+
 function testFunction(input){
     return {
         c: 'this is my response',
@@ -10,7 +13,7 @@ function testFunction(input){
     }
 }
 
-const funcSigReturn = runWithSig(testFunction, {
+const funcSigReturn = runFunc(testFunction, {
     //INPUT
     a: 3,
     b: 'string'
