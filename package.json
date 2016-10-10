@@ -1,6 +1,6 @@
 {
   "name": "run-function-with-signature",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "throws an error if the input or output of a function fails to validate against schemas",
   "main": "run-function-with-signature.js",
   "repository": {
@@ -15,6 +15,10 @@
     "schema",
     "validator",
     "signature",
+    "function",
+    "interface",
+    "parameter",
+    "return",
     "input",
     "output"
   ],
