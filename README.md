@@ -6,47 +6,49 @@
 
 
 ```
-var runFunction = require('run-function-with-signature');
+var SchemaFunction = require('run-function-with-signature');
 
-function testFunction(input){
-    return {
-        c: 'this is my response',
-        d: 3,
-    }
-}
-
-const functionReturnValue = runFunction(testFunction, {
-
-    //INPUT
-    a: 3,
-    b: 'string'
-    
-}, {
-
-    //INPUT SCHEMA
-    id: 'testinput',
-    properties: {
-        a: { type: 'integer' },
-        b: { type: 'string' }
-    },
-    required: ['a', 'b']
-
-}, {
-
-    //OUTPUT SCHEMA
-    id: 'testoutput',
-    properties: {
-        c: { type: 'string' },
-        d: { type: 'integer' }
-    },
-    required: ['c', 'd']
-
-}, { 
-
-    //OPTIONS
-    responseRequired: false
-
+/**/
+// USAGE
+let myFunc = new SchemaFunction('test function', { options: {
+    // available options
+    //responseRequired: false,
+  },
 });
 
-console.log(functionReturnValue);
+myFunc.inputSchema = {
+  properties: {
+      a: { type: 'integer' },
+      b: { type: 'string' },
+  },
+  required: ['a', 'b'],
+}
+
+myFunc.func = () => {
+  return {
+    c: 'this is my response',
+    d: 3,
+  }
+}
+
+myFunc.outputSchema = {
+  properties: {
+      c: { type: 'string' },
+      d: { type: 'integer' },
+  },
+  required: ['c', 'd'],
+}
+
+//To export as standard function
+function myRunFunction(input){
+  return myFunc.run(input);
+}
+
+const returnFromTheFunc = myRunFunction({
+  a: 3,
+  b: 'string',
+});
+
+console.log(returnFromTheFunc);
+/**/
 ```
