@@ -1,0 +1,118 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.12.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/troy/Dev/run-function-with-signature',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/troy/.npm/run-function-with-signature/0.0.4/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/troy/.npm correctMkdir not in flight; initializing
+10 info lifecycle run-function-with-signature@0.0.4~prepublish: run-function-with-signature@0.0.4
+11 silly lifecycle run-function-with-signature@0.0.4~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/troy/.npm/run-function-with-signature/0.0.4/package.tgz',
+12 verbose tar pack   '/Users/troy/Dev/run-function-with-signature' ]
+13 verbose tarball /Users/troy/.npm/run-function-with-signature/0.0.4/package.tgz
+14 verbose folder /Users/troy/Dev/run-function-with-signature
+15 verbose addLocalTarball adding from inside cache /Users/troy/.npm/run-function-with-signature/0.0.4/package.tgz
+16 verbose correctMkdir /Users/troy/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd run-function-with-signature@0.0.4
+18 verbose afterAdd /Users/troy/.npm/run-function-with-signature/0.0.4/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/troy/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/troy/.npm/run-function-with-signature/0.0.4/package/package.json written
+21 silly publish { name: 'run-function-with-signature',
+21 silly publish   version: '0.0.4',
+21 silly publish   description: 'throws an error if the input or output of a function fails to validate against schemas',
+21 silly publish   main: 'run-function-with-signature.js',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/troythewolfe/run-function-with-signature.git' },
+21 silly publish   dependencies: { jsonschema: '1.1.0' },
+21 silly publish   keywords:
+21 silly publish    [ 'json',
+21 silly publish      'schema',
+21 silly publish      'validator',
+21 silly publish      'signature',
+21 silly publish      'function',
+21 silly publish      'interface',
+21 silly publish      'parameter',
+21 silly publish      'return',
+21 silly publish      'input',
+21 silly publish      'output' ],
+21 silly publish   author: { name: 'Troy Wolfe' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/troythewolfe/run-function-with-signature/issues' },
+21 silly publish   homepage: 'https://github.com/troythewolfe/run-function-with-signature#readme',
+21 silly publish   readme: '#run-function-with-signature (SchemaFunction)\n\n## Description\n\nName your function (ex. \'My Special Function With Signatures\'), write your function body, optionally write a schema to validate the function\'s parameter object and/or the function\'s response object.\n\nIf anything fails validation, `throw new Error(err)`.\n\nSet properties on construction using the \'params\' parameter or set properties after construction using \'instance.property = value;\' syntax.\n\nExport as simple, single property function.\n\n## API\n\n```\nvar SchemaFunction = require(\'run-function-with-signature\');\n\n/**\n * SchemaFunction\n * Creates a function that will validate it\'s input and output against provided schemas.\n * @type {class}\n * @param {string} id - string indentifier, can include spaces.\n * @param {object} params - an object to set the properties on construction\n * @param {function} params.func - the function that this object runs\n * @param {object} params.input - the input object for params.func\n * @param {object} params.inputSchema - json schema describing the input object\n * @param {object} params.outputSchema - json schema describing the output object\n * @return {object} An instance of SchemaFunction\n**/\n```\n\n## Usage\n\n```\n/**/\nlet myFunc = new SchemaFunction(\'test function\', { func: (input) => {\n\n    // logs { a: 3, b: \'this is my input\' }\n    console.log(input);\n\n    return {\n      c: \'this is my response\',\n      d: 3,\n    }\n  }\n});\n\nmyFunc.inputSchema = {\n  properties: {\n      a: { type: \'integer\' },\n      b: { type: \'string\' },\n  },\n  required: [\'a\', \'b\'],\n};\n\nmyFunc.outputSchema = {\n  properties: {\n      c: { type: \'string\' },\n      d: { type: \'integer\' },\n  },\n  required: [\'c\', \'d\'],\n};\n\n// Export as function\nfunction myRunFunction(input){\n  return myFunc.run(input);\n}\n\nconst returnFromTheFunc = myRunFunction({\n  a: 3,\n  b: \'this is my input\',\n});\n\n// logs { c: \'this is my response\', d: 3 }\nconsole.log(returnFromTheFunc);\n/**/\n```\n\n## Error\n\nIf anything fails validation, SchemaFunction throws an error and passes an error object.\n\n```\n/**\n * ThrowError\n * Creates an error object and throws an error\n * @type {class}\n * @param {string} id - string indentifier, can include spaces.\n * @param {string} message - a description of why the error was thrown\n * @param {object} error - the error returned by the validator\n**/\n```\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'c284199d467bfdbd800b7ec34507266515e17f89',
+21 silly publish   _id: 'run-function-with-signature@0.0.4',
+21 silly publish   scripts: {},
+21 silly publish   _shasum: 'f46ffb5327c63f96a46c4572856a71471c561ff0',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name run-function-with-signature
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'run-function-with-signature',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'run-function-with-signature',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/run-function-with-signature
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/troy/.npm/run-function-with-signature/0.0.4/package.tgz
+30 verbose request uri https://registry.npmjs.org/run-function-with-signature
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 9:29:28 PM
+33 verbose request using bearer token for auth
+34 verbose request id 3592996db24ffe1b
+35 http request PUT https://registry.npmjs.org/run-function-with-signature
+36 http 403 https://registry.npmjs.org/run-function-with-signature
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Mon, 10 Oct 2016 04:29:29 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-sea1926-SEA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1476073769.110804,VS0,VE94',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/troy/.npm/registry.npmjs.org/run-function-with-signature on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.0.4." : run-function-with-signature
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 verbose stack     at emitOne (events.js:101:20)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid run-function-with-signature
+43 verbose cwd /Users/troy/Dev/run-function-with-signature
+44 error Darwin 14.5.0
+45 error argv "/usr/local/Cellar/node/0.12.0/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v6.2.2
+47 error npm  v3.9.5
+48 error code E403
+49 error "You cannot publish over the previously published version 0.0.4." : run-function-with-signature
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

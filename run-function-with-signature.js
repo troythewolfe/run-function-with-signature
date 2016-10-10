@@ -27,24 +27,29 @@ class SchemaFunction {
 
     if (!this.id) new ThrowError('NO ID', `missing id`);
 
-    function validateInput(){
-      if (!this.inputSchema) return;
-
-      if (!this.inputSchema.properties)
-        new ThrowError(this.id, `input missing 'properties' property`);
+    function setSchemaProperties(id, schema, type){
+      if (!schema.properties)
+        new ThrowError(id, `${type} missing 'properties' property`);
 
       //default additionalProperties to false
-      this.inputSchema.additionalProperties = this.inputSchema.additionalProperties === undefined
-        ? false : this.inputSchema.additionalProperties;
+      schema.additionalProperties = schema.additionalProperties === undefined
+        ? false : schema.additionalProperties;
 
-      this.inputSchema.id = `${this.id}-input`;
-      this.inputSchema.type = 'object';
+      schema.id = `${id}-${type}`;
+      schema.type = 'object';
+    }
 
-      //validate input
-      var inputValidator = new Validator();
-      var inputValidation = inputValidator.validate(this.input, this.inputSchema);
-      if(inputValidation.errors.length)
-        new ThrowError(this.id, `input validation errors`, inputValidation.errors);
+    function validate(id, input, schema, type){
+      var validator = new Validator();
+      var validation = validator.validate(input, schema);
+      if(validation.errors.length)
+        new ThrowError(id, `${type} validation errors`, validation.errors);
+    }
+
+    function validateInput(){
+      if (!this.inputSchema) return;
+      setSchemaProperties(this.id, this.inputSchema, 'input');
+      validate(this.id, this.input, this.inputSchema, 'input');
     }
 
     function validateOutput(){
@@ -52,25 +57,14 @@ class SchemaFunction {
         return this.func(this.input);
       }
 
-      if (!this.outputSchema.properties)
-        new ThrowError(this.id, `output missing 'properties' property`);
-
-      this.outputSchema.additionalProperties = this.outputSchema.additionalProperties === undefined
-        ? false : this.outputSchema.additionalProperties;
-
-      this.outputSchema.id = `${this.id}-output`;
-      this.outputSchema.type = 'object';
+      setSchemaProperties(this.id, this.outputSchema, 'output');
 
       //run function
       var funcReturn = this.func(this.input);
       if (!funcReturn)
         new ThrowError(this.id, `function response undefined`);
 
-      //validate response
-      var ouputValidator = new Validator();
-      var ouputValidation = ouputValidator.validate(funcReturn, this.outputSchema);
-      if(ouputValidation.errors.length)
-        new ThrowError(this.id, `output validation errors`, ouputValidation.errors);
+      validate(this.id, funcReturn, this.outputSchema, 'output');
 
       return funcReturn;
     }
