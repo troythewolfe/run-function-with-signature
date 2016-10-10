@@ -24,7 +24,7 @@ myFunc.inputSchema = {
   required: ['a', 'b'],
 }
 
-myFunc.func = () => {
+myFunc.func = (input) => {
   return {
     c: 'this is my response',
     d: 3,
