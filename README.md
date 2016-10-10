@@ -27,9 +27,11 @@ var SchemaFunction = require('run-function-with-signature');
  * @param {object} params.outputSchema - json schema describing the output object
  * @return {object} An instance of SchemaFunction
 **/
+```
 
 ## Usage
 
+```
 /**/
 let myFunc = new SchemaFunction('test function', { func: (input) => {
 
