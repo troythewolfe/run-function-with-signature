@@ -80,6 +80,14 @@ class SchemaFunction {
   }
 }
 
+/**
+ * ThrowError
+ * Creates an error object and throws an error
+ * @type {class}
+ * @param {string} id - string indentifier, can include spaces.
+ * @param {object} message - a description of why the error was thrown
+ * @param {object} error - the error returned by the validator
+**/
 class ThrowError {
   constructor(id, message, error) {
     this.id = id;

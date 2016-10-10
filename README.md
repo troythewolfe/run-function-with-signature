@@ -35,6 +35,7 @@ var SchemaFunction = require('run-function-with-signature');
 /**/
 let myFunc = new SchemaFunction('test function', { func: (input) => {
 
+    // logs { a: 3, b: 'this is my input' }
     console.log(input);
 
     return {
@@ -67,10 +68,25 @@ function myRunFunction(input){
 
 const returnFromTheFunc = myRunFunction({
   a: 3,
-  b: 'string',
+  b: 'this is my input',
 });
 
-// returns { c: 'this is my response', d: 3 }
+// logs { c: 'this is my response', d: 3 }
 console.log(returnFromTheFunc);
 /**/
+```
+
+## Error
+
+If anything fails validation, SchemaFunction throws an error and passes an error object.
+
+```
+/**
+ * ThrowError
+ * Creates an error object and throws an error
+ * @type {class}
+ * @param {string} id - string indentifier, can include spaces.
+ * @param {string} message - a description of why the error was thrown
+ * @param {object} error - the error returned by the validator
+**/
 ```
